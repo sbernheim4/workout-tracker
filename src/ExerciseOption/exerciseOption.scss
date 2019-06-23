@@ -1,0 +1,44 @@
+$exercise-color: #2b4d63;
+
+:root {
+    --exercise-color: #2b4d63;
+    --checkbox-size: 30px;
+}
+
+.exercise-option {
+    margin: 0 auto;
+    padding: 10px 0;
+    max-width: 600px;
+    width: 100%;
+    background: var(--exercise-color);
+    display: grid;
+    grid-template-columns: 1.5fr calc(1.5 * var(--checkbox-size));
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'name checkbox'
+                         'type checkbox';
+    border-bottom: 2px solid darken($exercise-color, 10%);
+
+    > * {
+        padding: 0 10px;
+    }
+
+    h2, h3 {
+        color: white;
+    }
+
+    input {
+        align-self: center;
+        justify-self: start;
+        grid-area: checkbox;
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+    }
+
+    h2 {
+        grid-area: name;
+    }
+
+    h3 {
+        grid-area: type;
+    }
+}
