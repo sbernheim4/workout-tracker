@@ -1,45 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import ExerciseOption from './ExerciseOption/ExerciseOptions.jsx';
+import ExerciseList from './ExerciseList/ExerciseList.jsx';
 
 import './exercises.scss';
-
-import data from './../Util/exercises.json';
-
-const allExercises = data.Exercises;
 
 export default function Exercises() {
 
 	const [searchTerm, setSearchTerm] = useState('');
-
-	useEffect(() => {
-
-		const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-
-		const list = allExercises.filter((exercise) => {
-
-			const name = exercise.Name.trim().toLowerCase();
-			const muscleGroup = exercise['Muscle Group'].trim().toLowerCase();
-
-			return (
-				name.includes(normalizedSearchTerm) ||
-				muscleGroup.includes(normalizedSearchTerm)
-			);
-
-		});
-
-		setExercisesToDisplay(list);
-
-	});
-
-	const [exercisesToDisplay, setExercisesToDisplay] = useState(allExercises);
 	const [exercises, setExercises] = useState([]);
 
 	function addExerciseToList(exercise) {
 
-		let updatedExercises = exercises;
-		updatedExercises.push(exercise);
+		const updatedExercises = [...exercises, exercise];
+
 		setExercises(updatedExercises);
+
+		//console.log('adding...');
+		//console.log(exercise);
+		//console.log(updatedExercises);
 
 	}
 
@@ -51,6 +29,10 @@ export default function Exercises() {
 		];
 
 		setExercises(updatedExercises);
+
+		//console.log('removing...');
+		//console.log(index);
+		//console.log(updatedExercises);
 
 	}
 
@@ -73,17 +55,11 @@ export default function Exercises() {
 				<button className='exercises--main--add' onClick={saveSelectedExercise}>Add</button>
 			</div>
 
-			{exercisesToDisplay.map((exercise, index) => {
-				return <ExerciseOption
-					key={index}
-					index={index}
-					addExercise={addExerciseToList}
-					removeExercise={removeExerciseFromList}
-					name={exercise.Name}
-					muscle={exercise['Muscle Group']}
-					joint={exercise['Joint']}
-				/>
-			})}
+			<ExerciseList
+				searchTerm={searchTerm}
+				addExercise={addExerciseToList}
+				removeExercise={removeExerciseFromList}
+			/>
 
 		</div>
 	);
