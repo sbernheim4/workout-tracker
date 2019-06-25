@@ -13,10 +13,10 @@ class ExerciseOption extends Component {
 			isChecked: true
 		};
 
-		this.handleChange = this.handleChange.bind(this);
+		this.handleChange = this.updateCheckbox.bind(this);
 	}
 
-	handleChange(event) {
+	updateCheckbox(event) {
 		const target = event.target;
 		const value = target.type === 'checkbox' ? target.checked : target.value;
 
@@ -38,7 +38,7 @@ class ExerciseOption extends Component {
 					type="checkbox"
 					name={name}
 					checked={this.state.isChecked}
-					onChange={this.handleChange}
+					onChange={this.updateCheckbox}
 				/>
 			</div>
 		);

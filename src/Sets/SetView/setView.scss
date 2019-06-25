@@ -5,18 +5,19 @@ $font-size: 25px;
 .set-view {
 	width: 100%;
 	height: 60px;
-	font-size: $font-size;
 	background-color: lighten($blue, 10%);
-	display: flex;
+	font-size: $font-size;
 	justify-content: space-between;
 	align-items: center;
+	border-bottom: 2px solid lighten($blue, 15%);
+	display: flex;
 
 	h4 {
 		margin: 0 20px;
 
 		span {
-			color: $gray;
 			font-size: calc(#{$font-size} - 10px);
+			color: $gray;
 		}
 	}
 

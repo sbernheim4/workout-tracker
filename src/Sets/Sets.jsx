@@ -16,16 +16,15 @@ export default class Sets extends Component {
 		}
 
 		this.addSet = this.addSet.bind(this);
-
 	}
 
-	addSet(x, y) {
+	addSet(reps, weight) {
 
 		const updatedState = this.state.sets;
 
 		const newSet = {
-			reps: x,
-			weight: y
+			reps,
+			weight
 		};
 
 		updatedState.push(newSet);
@@ -42,14 +41,15 @@ export default class Sets extends Component {
 				<div className='sets--add'>
 					<AddSet addSet={this.addSet} exercise={'Dumbbell Curl'}/>
 				</div>
+
 				{this.state.sets.map((set, index) => {
-					console.log(set);
-						<SetView
-							key={index}
-							reps={set.reps}
-							weight={set.weight}
-						/>
+					return <SetView
+						key={index}
+						reps={set.reps}
+						weight={set.weight}
+					/>
 				})}
+
 			</div>
 		);
 	}

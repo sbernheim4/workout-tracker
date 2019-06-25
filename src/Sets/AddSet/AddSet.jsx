@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 
-import { toTitleCase } from './../../Util/util.js';
-
 import './addSet.scss';
 
-let updateParent;
+let updateParentState;
 
 export default function AddSet(props) {
 
 	const [reps, setReps] = useState();
 	const [weight, setWeight] = useState();
 
-	updateParent = props.addSet;
+	updateParentState = props.addSet;
 
 	return (
 		<div className='addSet'>
@@ -38,5 +36,5 @@ export default function AddSet(props) {
 
 function submitData(e, reps = 0, weight = 0) {
 	e.preventDefault();
-	updateParent(reps, weight);
+	updateParentState(reps, weight);
 }
