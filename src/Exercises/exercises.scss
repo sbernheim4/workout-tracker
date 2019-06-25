@@ -2,15 +2,30 @@
 
 .exercises {
 
-	user-select: select;
+	&--main {
+		display: flex;
+		justify-content: space-between;
 
-	&--input {
-		padding-left: 15px;
-		width: 100%;
-		height: 70px;
-		background-color: darken($blue, 10%);
-		font-size: 25px;
+		&--input {
+			padding-left: 15px;
+			width: 100%;
+			height: 70px;
+			background-color: darken($blue, 10%);
+			font-size: 25px;
+		}
 
+		&--add {
+			width: 120px;
+			height: 70px;
+			background-color: darken($blue, 15%);
+			cursor: pointer;
+			font-size: 25px;
+			transition: background .15s ease-in;
+
+			&:hover {
+				background-color: darken($blue, 20%);
+			}
+		}
 
 	}
 

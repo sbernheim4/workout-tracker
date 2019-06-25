@@ -13,6 +13,7 @@ export default function Exercises() {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
+
 		const normalizedSearchTerm = searchTerm.trim().toLowerCase();
 
 		const list = allExercises.filter((exercise) => {
@@ -20,33 +21,70 @@ export default function Exercises() {
 			const name = exercise.Name.trim().toLowerCase();
 			const muscleGroup = exercise['Muscle Group'].trim().toLowerCase();
 
-			return name.includes(normalizedSearchTerm) ||
-				muscleGroup.includes(normalizedSearchTerm);
+			return (
+				name.includes(normalizedSearchTerm) ||
+				muscleGroup.includes(normalizedSearchTerm)
+			);
+
 		});
 
 		setExercisesToDisplay(list);
-	})
+
+	});
 
 	const [exercisesToDisplay, setExercisesToDisplay] = useState(allExercises);
+	const [exercises, setExercises] = useState([]);
+
+	function addExerciseToList(exercise) {
+
+		let updatedExercises = exercises;
+		updatedExercises.push(exercise);
+		setExercises(updatedExercises);
+
+	}
+
+	function removeExerciseFromList(index) {
+
+		const updatedExercises = [
+			...exercises.slice(0, index),
+			...exercises.slice(index + 1)
+		];
+
+		setExercises(updatedExercises);
+
+	}
+
+	function saveSelectedExercise() {
+		console.log(exercises);
+	}
 
 	return (
 		<div className='exercises'>
 
-			<input
-				className='exercises--input'
-				type='text'
-				placeholder='Search'
-				value={searchTerm}
-				onChange={(e) => { setSearchTerm(e.target.value) }}
-			/>
+			<div className='exercises--main'>
+				<input
+					className='exercises--main--input'
+					type='text'
+					placeholder='Search'
+					value={searchTerm}
+					onChange={(e) => { setSearchTerm(e.target.value) }}
+				/>
+
+				<button className='exercises--main--add' onClick={saveSelectedExercise}>Add</button>
+			</div>
 
 			{exercisesToDisplay.map((exercise, index) => {
 				return <ExerciseOption
-						key={index}
-						name={exercise.Name}
-						type={exercise['Muscle Group']}
-					/>
+					key={index}
+					index={index}
+					addExercise={addExerciseToList}
+					removeExercise={removeExerciseFromList}
+					name={exercise.Name}
+					muscle={exercise['Muscle Group']}
+					joint={exercise['Joint']}
+				/>
 			})}
+
 		</div>
 	);
 }

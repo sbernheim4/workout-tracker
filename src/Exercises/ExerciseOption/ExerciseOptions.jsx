@@ -14,26 +14,42 @@ class ExerciseOption extends Component {
 		};
 
 		this.updateCheckbox = this.updateCheckbox.bind(this);
+
+		const { addExercise, removeExercise, index } = props;
+
+		this.addExercise = addExercise;
+		this.removeExercise = removeExercise;
+		this.index = index;
+
 	}
+
 
 	updateCheckbox(event) {
 		const target = event.target;
-		const value = target.type === 'checkbox' ? target.checked : target.value;
+		const checked = target.type === 'checkbox' ? target.checked : target.value;
 
 		this.setState({
-			isChecked: value
+			isChecked: checked
 		});
+
+		// Update the list of exercises in the parent component
+		const exercise = {
+			name: this.props.name,
+			muscle: this.props.muscle,
+			joint: this.props.joint
+		}
+		checked ? this.addExercise(exercise) : this.removeExercise(this.index);
 	}
 
 	render() {
 
 		const name = toTitleCase(this.props.name);
-		const type = toTitleCase(this.props.type);
+		const muscle = toTitleCase(this.props.muscle);
 
 		return (
 			<div className='exercise-option'>
 				<h2>{name}</h2>
-				<h3>{type}</h3>
+				<h3>{muscle}</h3>
 				<input
 					type="checkbox"
 					name={name}
