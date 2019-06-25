@@ -21,17 +21,20 @@ export default function ExerciseList(props) {
 				name.includes(props.searchTerm) ||
 				muscleGroup.includes(props.searchTerm)
 			);
+
 		});
 
 		setExercisesToDisplay(list);
-	})
+
+	});
 
 	return (
 		<div className='exercise-list'>
+
 			{exercisesToDisplay.map((exercise, index) => {
+
 				return <ExerciseOption
 					key={index}
-					index={index}
 					addExercise={props.addExercise}
 					removeExercise={props.removeExercise}
 					name={exercise.Name}
@@ -39,6 +42,7 @@ export default function ExerciseList(props) {
 					joint={exercise['Joint']}
 				/>
 			})}
+
 		</div>
 	);
 

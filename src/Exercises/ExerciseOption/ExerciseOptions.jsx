@@ -31,7 +31,7 @@ class ExerciseOption extends Component {
 		if (checked) {
 			this.props.addExercise(exercise);
 		} else {
-			this.props.removeExercise(this.props.index);
+			this.props.removeExercise(exercise);
 		}
 
 		this.setState({

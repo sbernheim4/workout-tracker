@@ -21,12 +21,17 @@ export default function Exercises() {
 
 	}
 
-	function removeExerciseFromList(index) {
+	function removeExerciseFromList(exercise) {
 
-		const updatedExercises = [
-			...exercises.slice(0, index),
-			...exercises.slice(index + 1)
-		];
+		let updatedExercises = [];
+
+		exercises.forEach(ex => {
+
+			if (ex.name !== exercise.name) {
+				updatedExercises.push(ex);
+			}
+
+		});
 
 		setExercises(updatedExercises);
 
@@ -44,6 +49,7 @@ export default function Exercises() {
 		<div className='exercises'>
 
 			<div className='exercises--main'>
+
 				<input
 					className='exercises--main--input'
 					type='text'
@@ -53,6 +59,7 @@ export default function Exercises() {
 				/>
 
 				<button className='exercises--main--add' onClick={saveSelectedExercise}>Add</button>
+
 			</div>
 
 			<ExerciseList
