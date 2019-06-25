@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import ExerciseOption from './../../ExerciseOption/ExerciseOption.jsx';
+import Exercises from './../../Exercises/Exercises.jsx';
 import Sets from './../../Sets/Sets.jsx';
 
 import './home.css';
@@ -16,7 +16,7 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="home">
-				<ExerciseOption name={'bench press'} type={'chest'}/>
+				<Exercises />
 				<br/>
 				<br/>
 				<Sets />

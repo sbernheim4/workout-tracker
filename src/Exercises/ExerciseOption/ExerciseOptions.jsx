@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { toTitleCase } from './../Util/util.js';
+import { toTitleCase } from './../../Util/util.js';
 
 import './exerciseOption.scss';
 
@@ -10,10 +10,10 @@ class ExerciseOption extends Component {
 		super(props);
 
 		this.state = {
-			isChecked: true
+			isChecked: false
 		};
 
-		this.handleChange = this.updateCheckbox.bind(this);
+		this.updateCheckbox = this.updateCheckbox.bind(this);
 	}
 
 	updateCheckbox(event) {
@@ -47,3 +47,4 @@ class ExerciseOption extends Component {
 }
 
 export default ExerciseOption;
+
