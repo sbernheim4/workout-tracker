@@ -13,8 +13,15 @@ export default function Exercises() {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	useEffect(() => {
+		const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+
 		const list = allExercises.filter((exercise) => {
-			return exercise.Name.includes(searchTerm) || exercise['Muscle Group'].includes(searchTerm);
+
+			const name = exercise.Name.trim().toLowerCase();
+			const muscleGroup = exercise['Muscle Group'].trim().toLowerCase();
+
+			return name.includes(normalizedSearchTerm) ||
+				muscleGroup.includes(normalizedSearchTerm);
 		});
 
 		setExercisesToDisplay(list);
@@ -25,7 +32,13 @@ export default function Exercises() {
 	return (
 		<div className='exercises'>
 
-			<input type='text' value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value) }} />
+			<input
+				className='exercises--input'
+				type='text'
+				placeholder='Search'
+				value={searchTerm}
+				onChange={(e) => { setSearchTerm(e.target.value) }}
+			/>
 
 			{exercisesToDisplay.map((exercise, index) => {
 				return <ExerciseOption

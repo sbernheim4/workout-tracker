@@ -2,7 +2,7 @@
 
 :root {
     --exercise-color: #2b4d63;
-    --checkbox-size: 30px;
+    --checkbox-size: 40px;
 }
 
 .exercise-option {
@@ -11,7 +11,7 @@
     padding: 10px 0;
     background: var(--exercise-color);
     display: grid;
-    grid-template-columns: 1.5fr calc(1.5 * var(--checkbox-size));
+    grid-template-columns: 1.5fr 60px;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'name checkbox'
                          'type checkbox';

@@ -1,12 +1,17 @@
+@import './../styles/variables.scss';
+
 .exercises {
 
 	user-select: select;
 
-	input {
+	&--input {
+		padding-left: 15px;
 		width: 100%;
-		height: 40px;
-		background-color: green;
-		user-select: select;
+		height: 70px;
+		background-color: darken($blue, 10%);
+		font-size: 25px;
+
+
 	}
 
 }
