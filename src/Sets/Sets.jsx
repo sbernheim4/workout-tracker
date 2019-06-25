@@ -16,6 +16,7 @@ export default class Sets extends Component {
 		}
 
 		this.addSet = this.addSet.bind(this);
+		this.updateSetInfo = this.updateSetInfo.bind(this);
 	}
 
 	addSet(reps, weight) {
@@ -34,6 +35,25 @@ export default class Sets extends Component {
 		});
 	}
 
+	updateSetInfo(index, reps, weight) {
+		const updatedSet = {
+			reps: reps,
+			weight: weight
+		};
+
+		const currentState = this.state.sets;
+
+		const newList = [
+			...currentState.slice(0, index),
+			...[updatedSet],
+			...currentState.slice(index + 1)
+		];
+
+		this.setState({
+			sets: newList
+		});
+	}
+
 	render() {
 
 		return (
@@ -44,9 +64,11 @@ export default class Sets extends Component {
 
 				{this.state.sets.map((set, index) => {
 					return <SetView
+						updateSetInfo={this.updateSetInfo}
 						key={index}
 						reps={set.reps}
 						weight={set.weight}
+						index={index}
 					/>
 				})}
 
