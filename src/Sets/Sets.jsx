@@ -17,6 +17,7 @@ export default class Sets extends Component {
 
 		this.addSet = this.addSet.bind(this);
 		this.updateSetInfo = this.updateSetInfo.bind(this);
+		this.removeSet = this.removeSet.bind(this);
 	}
 
 	addSet(reps, weight) {
@@ -54,6 +55,21 @@ export default class Sets extends Component {
 		});
 	}
 
+	removeSet(index) {
+
+		const currentState = this.state.sets;
+
+		const updatedList = [
+			...currentState.slice(0, index),
+			...currentState.slice(index + 1)
+		];
+
+		this.setState({
+			sets: updatedList
+		});
+
+	}
+
 	render() {
 
 		return (
@@ -65,6 +81,7 @@ export default class Sets extends Component {
 				{this.state.sets.map((set, index) => {
 					return <SetView
 						updateSetInfo={this.updateSetInfo}
+						removeSet={this.removeSet}
 						key={index}
 						reps={set.reps}
 						weight={set.weight}

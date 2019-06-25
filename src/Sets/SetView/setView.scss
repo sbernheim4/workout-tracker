@@ -6,14 +6,18 @@ $font-size: 25px;
 	width: 100%;
 	height: 60px;
 	background-color: lighten($blue, 10%);
-	font-size: $font-size;
-	justify-content: space-between;
-	align-items: center;
 	border-bottom: 2px solid lighten($blue, 15%);
-	display: flex;
+	font-size: $font-size;
+	display: grid;
+	grid-template-columns: 2fr .5fr 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: 'data remove edit';
+	justify-content: center;
+	align-items: center;
 
 	h4 {
 		margin: 0 20px;
+		grid-area: data;
 
 		span {
 			font-size: calc(#{$font-size} - 10px);
@@ -24,85 +28,88 @@ $font-size: 25px;
 	&--edit {
 		margin: 0 20px;
 		background: none;
-		color: lighten($gray, 8%);
 		font-size: calc(#{$font-size});
+		color: lighten($gray, 8%);
 		cursor: pointer;
+		grid-area: edit;
 	}
 
+	&--remove {
+		width: 40px;
+		height: 40px;
+		padding-bottom: 6px;
+		background: $red;
+		border-radius: 100%;
+		font-size: 25px;
+		cursor: pointer;
+		grid-area: remove;
+		justify-self: center;
+	}
 }
 
 .set-modifier {
 	display: none;
+	background-color: lighten($blue, 15%);
+	color: white;
 
-	.addSet {
-		background: $blue;
-		color: white;
+	form {
 
-		h3 {
-			margin: 20px 0;
-			text-align: center;
+		hr {
+			margin-bottom: 10px;
+			width: 100%;
+			height: 3px;
+			background: lighten($blue, 20%);
 		}
 
-		form {
+		div {
+			width: 100%;
+			font-size: 30px;
+			color: white;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			overflow-y: hidden;
 
-			hr {
+			label {
 				margin-bottom: 10px;
-				width: 100%;
-				height: 3px;
-				background: darken($blue, 10%);
+
+				span {
+					color: darken(white, 30%);
+				}
 			}
 
-			div {
-				width: 100%;
-				background: $blue;
+			input {
+				margin: 10px auto;
+				background: lighten($blue, 15%);
 				font-size: 30px;
 				color: white;
 				text-align: center;
-				display: flex;
-				flex-direction: column;
-				overflow-y: hidden;
-
-				label {
-					margin-bottom: 10px;
-
-					span {
-						color: darken(white, 30%);
-					}
-				}
-
-				input {
-					margin: 10px auto;
-					background: $blue;
-					font-size: 30px;
-					color: white;
-					text-align: center;
-				}
-
 			}
 
-			button {
-				position: relative;
-				width: 100%;
-				padding: 10px;
-				background-color: $green;
-				border-radius: 0 0 20px 20px;
-				font-size: 30px;
-				color: white;
-				cursor: pointer;
-				transition: background .1s, boxshadow .1s ease-in;
-				box-shadow: 0 6px darken($green, 10%);
-				box-sizing: border-box;
-				top: -6px;
+		}
 
-				&:hover {
-					background-color: darken($green, 10%);
-					box-shadow: 0 6px darken($green, 20%);
-				}
+		button {
+			position: relative;
+			width: 100%;
+			padding: 10px;
+			background-color: $green;
+			border-radius: 0 0 20px 20px;
+			font-size: 30px;
+			color: white;
+			cursor: pointer;
+			transition: background .1s, boxshadow .1s ease-in;
+			box-shadow: 0 6px darken($green, 10%);
+			box-sizing: border-box;
+			top: -6px;
 
-				&:active {
-					top: 3px;
-					box-shadow: 0 0 darken($green, 17%);
-				}
+			&:hover {
+				background-color: darken($green, 10%);
+				box-shadow: 0 6px darken($green, 20%);
+			}
+
+			&:active {
+				top: 3px;
+				box-shadow: 0 0 darken($green, 17%);
 			}
 		}
 	}
@@ -111,4 +118,9 @@ $font-size: 25px;
 
 .show {
 	display: block;
+}
+
+.set-view--editable {
+	display: inline-flex;
+	box-shadow: 0 -3px 15px black;
 }
