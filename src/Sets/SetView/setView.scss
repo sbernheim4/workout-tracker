@@ -1,0 +1,28 @@
+@import './../../styles/variables.scss';
+
+$font-size: 25px;
+
+.set-view {
+	width: 100%;
+	height: 60px;
+	font-size: $font-size;
+	background-color: lighten($blue, 10%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	h4 {
+		margin: 0 20px;
+
+		span {
+			color: $gray;
+			font-size: calc(#{$font-size} - 10px);
+		}
+	}
+
+	&--edit {
+		color: lighten($gray, 8%);
+		cursor: pointer;
+	}
+
+}

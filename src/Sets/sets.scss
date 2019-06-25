@@ -1,0 +1,11 @@
+@import './../styles/variables.scss';
+.sets {
+
+	background-color: $blue;
+
+	&--add {
+		padding-bottom: 30px;
+		border-bottom: 3px solid lighten($blue, 30%);
+	}
+
+}

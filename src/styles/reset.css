@@ -11,6 +11,8 @@
 	font-family: 'Lato', sans-serif;
 	border: none;
 	border-radius: 0;
+    user-select: none;
+	color: white;
 }
 
 body {

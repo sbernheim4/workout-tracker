@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import ExerciseOption from './../../ExerciseOption/ExerciseOption.jsx';
-import Progress from './../../Progress/Progress.jsx';
+import Sets from './../../Sets/Sets.jsx';
 
 import './home.css';
 
@@ -16,10 +16,10 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="home">
-                <ExerciseOption name={'bench press'} type={'chest'}/>
-                <br/>
-                <br/>
-                <Progress exercise={'bench press'}/>
+				<ExerciseOption name={'bench press'} type={'chest'}/>
+				<br/>
+				<br/>
+				<Sets />
 			</div>
 		);
 	}
