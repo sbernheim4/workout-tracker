@@ -12,5 +12,3 @@ export default function SetView(props) {
 	);
 
 }
-
-export default SetView;
