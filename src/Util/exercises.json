@@ -272,15 +272,6 @@
         },
         {
             "Muscle Group": "Abdominals - Upper",
-            "Name": "Crunch",
-            "Level": "Beginner",
-            "U/L/C": "Core",
-            "P / P": "Push",
-            "Modality": "FW",
-            "Joint": "M"
-        },
-        {
-            "Muscle Group": "Abdominals - Upper",
             "Name": "Decline Crunch",
             "Level": "Advanced",
             "U/L/C": "Core",
@@ -2401,15 +2392,6 @@
             "U/L/C": "Upper",
             "P / P": "Push",
             "Modality": "FW",
-            "Joint": "S"
-        },
-        {
-            "Muscle Group": "Triceps",
-            "Name": "Tricep Pushdown",
-            "Level": "Beginner",
-            "U/L/C": "Upper",
-            "P / P": "Push",
-            "Modality": "C",
             "Joint": "S"
         },
         {
