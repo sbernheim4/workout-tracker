@@ -52,7 +52,7 @@ class ExerciseOption extends Component {
 				<input
 					type="checkbox"
 					name={name}
-					checked={this.state.isChecked}
+					checked={this.props.checked || this.state.isChecked}
 					onChange={this.updateCheckbox}
 				/>
 			</div>

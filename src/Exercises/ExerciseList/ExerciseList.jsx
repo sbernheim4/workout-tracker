@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 
 import ExerciseOption from './../ExerciseOption/ExerciseOptions.jsx';
 
@@ -6,44 +6,63 @@ import data from './../../Util/exercises.json';
 
 const allExercises = data.Exercises;
 
-export default function ExerciseList(props) {
+class ExerciseList extends Component {
 
-	const [exercisesToDisplay, setExercisesToDisplay] = useState([allExercises]);
+	constructor(props) {
+		super(props);
 
-	useEffect(() => {
+		this.state = {
+			exercisesToDisplay: allExercises,
+		};
+	}
 
-		const list = allExercises.filter((exercise) => {
+	componentDidUpdate(prevProps) {
 
-			const name = exercise.Name.trim().toLowerCase();
-			const muscleGroup = exercise['Muscle Group'].trim().toLowerCase();
+		if (prevProps.searchTerm !== this.props.searchTerm) {
 
-			return (
-				name.includes(props.searchTerm) ||
-				muscleGroup.includes(props.searchTerm)
-			);
+			const list = allExercises.filter((exercise) => {
 
-		});
+				const name = exercise.Name.trim().toLowerCase();
+				const muscleGroup = exercise['Muscle Group'].trim().toLowerCase();
 
-		setExercisesToDisplay(list);
+				return (
+					name.includes(this.props.searchTerm) ||
+					muscleGroup.includes(this.props.searchTerm)
+				);
 
-	});
+			});
 
-	return (
-		<div className='exercise-list'>
+			this.setState({
+				exercisesToDisplay: list
+			});
 
-			{exercisesToDisplay.map((exercise, index) => {
+		}
 
-				return <ExerciseOption
-					key={index}
-					addExercise={props.addExercise}
-					removeExercise={props.removeExercise}
-					name={exercise.Name}
-					muscle={exercise['Muscle Group']}
-					joint={exercise['Joint']}
-				/>
-			})}
+	}
 
-		</div>
-	);
+	render() {
+
+		return (
+
+			<div className='exercise-list'>
+
+				{this.state.exercisesToDisplay.map((exercise, index) => {
+					return <ExerciseOption
+						key={exercise.Name.replace(/ /g, '')}
+						addExercise={this.props.addExercise}
+						removeExercise={this.props.removeExercise}
+						name={exercise.Name}
+						muscle={exercise['Muscle Group']}
+						joint={exercise['Joint']}
+						checked={null}
+					/>
+				})}
+
+			</div>
+
+		);
+	}
 
 }
+
+export default ExerciseList;
