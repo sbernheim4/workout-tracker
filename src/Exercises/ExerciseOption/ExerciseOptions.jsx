@@ -4,9 +4,10 @@ import { toTitleCase } from './../../Util/util.js';
 
 import './exerciseOption.scss';
 
-class ExerciseOption extends Component {
+export default class ExerciseOption extends Component {
 
 	constructor(props) {
+
 		super(props);
 
 		this.state = {
@@ -60,6 +61,3 @@ class ExerciseOption extends Component {
 	}
 
 }
-
-export default ExerciseOption;
-

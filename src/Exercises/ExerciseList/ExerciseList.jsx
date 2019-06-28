@@ -7,7 +7,7 @@ import data from './../../Util/exercises.json';
 
 const allExercises = data.Exercises;
 
-class ExerciseList extends Component {
+export default class ExerciseList extends Component {
 
 	constructor(props) {
 		super(props);
@@ -41,7 +41,7 @@ class ExerciseList extends Component {
 
 		return (
 
-			<div className='exercise-list'>
+			<div className='exercise--list'>
 
 				{allExercises.map((exercise, index) => {
 
@@ -62,7 +62,4 @@ class ExerciseList extends Component {
 			</div>
 		);
 	}
-
 }
-
-export default ExerciseList;

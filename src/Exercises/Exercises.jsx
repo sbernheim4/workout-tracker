@@ -9,20 +9,23 @@ export default function Exercises() {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [exercises, setExercises] = useState([]);
 
+	/*
+	 *
+	 * @param {Object} exercise - The exercise to be added to the list of selected exercises
+	 *
+	 * */
 	function addExerciseToList(exercise) {
-
 		const updatedExercises = [...exercises, exercise];
 
 		setExercises(updatedExercises);
-
-		//console.log('adding...');
-		//console.log(exercise);
-		//console.log(updatedExercises);
-
 	}
 
+	/*
+	 *
+	 * @param {Object} exercise - The exercise to be removed to the list of selected exercises
+	 *
+	 * */
 	function removeExerciseFromList(exercise) {
-
 		let updatedExercises = [];
 
 		exercises.forEach(ex => {
@@ -34,11 +37,6 @@ export default function Exercises() {
 		});
 
 		setExercises(updatedExercises);
-
-		//console.log('removing...');
-		//console.log(index);
-		//console.log(updatedExercises);
-
 	}
 
 	function saveSelectedExercise() {
@@ -48,18 +46,16 @@ export default function Exercises() {
 	return (
 		<div className='exercises'>
 
-			<div className='exercises--main'>
-
+			<div className='exercises--search'>
 				<input
-					className='exercises--main--input'
+					className='exercises--search--input'
 					type='text'
 					placeholder='Search'
 					value={searchTerm}
 					onChange={(e) => { setSearchTerm(e.target.value) }}
 				/>
 
-				<button className='exercises--main--add' onClick={saveSelectedExercise}>Add</button>
-
+				<button className='exercises--search--add' onClick={saveSelectedExercise}>Add</button>
 			</div>
 
 			<ExerciseList

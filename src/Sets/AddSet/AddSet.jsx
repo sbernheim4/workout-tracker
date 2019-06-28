@@ -12,6 +12,7 @@ export default function AddSet(props) {
 	updateParentState = props.addSet;
 
 	return (
+
 		<div className='addSet'>
 			<h3>Current Set</h3>
 			<form onSubmit={submitData}>
@@ -34,6 +35,13 @@ export default function AddSet(props) {
 	);
 }
 
+/*
+ *
+ * @param {Object} e
+ * @param {Number} reps=0
+ * @param {Number} weight=0
+ *
+ * */
 function submitData(e, reps = 0, weight = 0) {
 	e.preventDefault();
 	updateParentState(reps, weight);

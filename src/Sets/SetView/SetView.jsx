@@ -1,4 +1,9 @@
 import React, { useState, useRef } from 'react';
+import Check from 'check-types';
+
+const {
+	number
+} = Check;
 
 import './setView.scss';
 
@@ -15,11 +20,28 @@ export default function SetView(props) {
 		setElement.current.classList.toggle('set-view--editable');
 	}
 
+	/*
+	 *
+	 * @param {Object} e
+	 * @param {Number} index - Index location in sets of the set being updated
+	 * @param {Number} reps - The number of reps for the given set
+	 * @param {Number} weight - The weight used for the given set
+	 *
+	 * */
 	function updateSet(e, index, reps, weight) {
 		e.preventDefault();
-		props.updateSetInfo(index, reps, weight);
-		formElement.current.classList.remove('show');
-		setElement.current.classList.remove('set-view--editable');
+
+		reps = parseInt(reps);
+		weight = parseInt(weight);
+
+		if (number(reps) && number(weight)) {
+
+			props.updateSetInfo(index, reps, weight);
+
+			formElement.current.classList.remove('show');
+			setElement.current.classList.remove('set-view--editable');
+
+		}
 	}
 
 	function removeSet(e) {
