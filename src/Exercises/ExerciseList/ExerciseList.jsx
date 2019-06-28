@@ -19,14 +19,18 @@ class ExerciseList extends Component {
 
 			allExercises.forEach((exercise) => {
 
+				// Search both the name of the exercise and the associated muscle group
 				const name = exercise.Name.trim().toLowerCase();
 				const muscleGroup = exercise['Muscle Group'].trim().toLowerCase();
 
+				// Get the ref value to effect the search results
 				const refValue = exercise.Name.replace(/ /g, '');
+				const node = ReactDOM.findDOMNode(this.refs[refValue]);
+
 				if (name.includes(this.props.searchTerm) || muscleGroup.includes(this.props.searchTerm)) {
-					ReactDOM.findDOMNode(this.refs[refValue]).classList.remove('hide');
+					node.classList.remove('hide');
 				} else {
-					ReactDOM.findDOMNode(this.refs[refValue]).classList.add('hide');
+					node.classList.add('hide');
 				}
 
 			});
@@ -52,10 +56,10 @@ class ExerciseList extends Component {
 						muscle={exercise['Muscle Group']}
 						joint={exercise['Joint']}
 					/>
+
 				})}
 
 			</div>
-
 		);
 	}
 
