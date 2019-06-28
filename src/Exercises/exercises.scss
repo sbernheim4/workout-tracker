@@ -3,7 +3,9 @@
 .exercises {
 
 	&--search {
-		display: flex;
+		width: 100%;
+		box-shadow: 0 0px 20px 5px black;
+		display: inline-flex;
 		justify-content: space-between;
 
 		&--input {
