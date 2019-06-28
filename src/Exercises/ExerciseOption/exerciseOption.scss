@@ -1,45 +1,48 @@
 @import './../../styles/variables.scss';
 
 :root {
-    --exercise-color: #2b4d63;
-    --checkbox-size: 40px;
+	--exercise-color: #2b4d63;
+	--checkbox-size: 40px;
 }
 
 .exercise-option {
-    margin: 0 auto;
-    width: 100%;
-    padding: 10px 0;
-    background: var(--exercise-color);
-    display: grid;
-    grid-template-columns: 1.5fr 60px;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 'name checkbox'
-                         'type checkbox';
-    border-bottom: 2px solid darken($blue, 10%);
+	margin: 0 auto;
+	width: 100%;
+	padding: 10px 0;
+	background: var(--exercise-color);
+	display: grid;
+	grid-template-columns: 1.5fr 60px;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 'name checkbox'
+	'type checkbox';
+	border-bottom: 2px solid darken($blue, 10%);
 
-    > * {
-        padding: 0 15px;
-    }
+	> * {
+		padding: 0 15px;
+	}
 
-    h2, h3 {
-        color: white;
-    }
+	h2, h3 {
+		color: white;
+	}
 
-    input {
-        width: var(--checkbox-size);
-        height: var(--checkbox-size);
-        align-self: center;
-        justify-self: start;
-        grid-area: checkbox;
-    }
+	input {
+		width: var(--checkbox-size);
+		height: var(--checkbox-size);
+		align-self: center;
+		justify-self: start;
+		grid-area: checkbox;
+	}
 
-    h2 {
-        grid-area: name;
-    }
+	h2 {
+		grid-area: name;
+	}
 
-    h3 {
-        grid-area: type;
+	h3 {
+		grid-area: type;
 		align-self: flex-end;
 		font-size: 17px;
-    }
+	}
+}
+.hide {
+	display: none;
 }
