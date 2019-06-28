@@ -80,7 +80,7 @@ else {
 }
 function startServer() {
     app.listen(PORT, () => {
-        console.log(chalk_1.default.blue(`App is live on ${process.env.DEV_BASE_URL}`));
+        console.log(chalk_1.default.blue(`App is live on ${process.env.DEV_BASE_URL || 'localhost:' + PORT}`));
     });
 }
 //# sourceMappingURL=index.js.map

@@ -68,7 +68,7 @@ const clientConfig = {
 			template: 'HTMLTemplate.js',
 			dest: 'index.html',
 			inject: false,
-			title: 'Premiere Mern Stack'
+			title: 'TrackIt'
 		}),
 
 		// Optimizes css by minifying it and removing comments

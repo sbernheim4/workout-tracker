@@ -56,7 +56,7 @@ export default function SetView(props) {
 			<div ref={setElement} className='sets--list--item'>
 
 				<h4>
-					<span className='sets--list--item__number'>{props.reps}</span> <span className='sets--list--item__subscript'>reps</span> x <span className='sets--list--item__number'>{props.weight}</span> <span className='sets--list--item__number'> lbs</span>
+					<span className='sets--list--item__number'>{props.reps}</span> <span className='sets--list--item__subscript'>reps</span> x <span className='sets--list--item__number'>{props.weight}</span> <span className='sets--list--item__subscript'> lbs</span>
 				</h4>
 
 				<button onClick={removeSet} className='sets--list--item__remove'>x</button>
