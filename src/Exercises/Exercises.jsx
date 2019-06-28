@@ -44,6 +44,7 @@ export default function Exercises() {
 	}
 
 	return (
+
 		<div className='exercises'>
 
 			<div className='exercises--search'>
@@ -55,7 +56,7 @@ export default function Exercises() {
 					onChange={(e) => { setSearchTerm(e.target.value) }}
 				/>
 
-				<button className='exercises--search--add' onClick={saveSelectedExercise}>Add</button>
+				<button className='exercises--search--add' onClick={saveSelectedExercise}>Add ({exercises.length})</button>
 			</div>
 
 			<ExerciseList

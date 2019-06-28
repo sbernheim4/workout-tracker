@@ -16,10 +16,10 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="home">
-				<Exercises />
-				<br/>
-				<br/>
 				<Sets />
+				<br/>
+				<br/>
+				<Exercises />
 			</div>
 		);
 	}

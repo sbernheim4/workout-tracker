@@ -54,7 +54,11 @@ export default function SetView(props) {
 		<div className='container'>
 
 			<div ref={setElement} className='set-view'>
-				<h4>{props.reps} <span>reps</span> x {props.weight}<span> lbs</span></h4>
+
+				<h4>
+					<span className='set-view--number'>{props.reps}</span> <span className='set-view--subscript'>reps</span> x <span className='set-view--number'>{props.weight}</span> <span className='set-view--subscript'> lbs</span>
+				</h4>
+
 				<button onClick={removeSet} className='set-view--remove'>x</button>
 				<button onClick={editSet} className='set-view--edit'>Edit</button>
 			</div>

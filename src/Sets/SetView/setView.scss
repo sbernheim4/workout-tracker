@@ -8,7 +8,7 @@ $font-size: 25px;
 	background-color: lighten($blue, 10%);
 	border-bottom: 2px solid lighten($blue, 15%);
 	font-size: $font-size;
-	display: grid;
+	display: inline-grid;
 	grid-template-columns: 2fr .5fr 1fr;
 	grid-template-rows: 1fr;
 	grid-template-areas: 'data remove edit';
@@ -19,11 +19,20 @@ $font-size: 25px;
 		margin: 0 20px;
 		grid-area: data;
 
-		span {
-			font-size: calc(#{$font-size} - 10px);
-			color: $gray;
-		}
 	}
+
+	&--subscript {
+		font-size: calc(#{$font-size} - 10px);
+		color: $gray;
+	}
+
+	&--number {
+    	min-width: 33px;
+    	display: inline-block;
+    	vertical-align: bottom;
+    	text-align: right;
+	}
+
 
 	&--edit {
 		margin: 0 20px;
@@ -121,6 +130,5 @@ $font-size: 25px;
 }
 
 .set-view--editable {
-	display: inline-flex;
 	box-shadow: 0 -3px 15px black;
 }
