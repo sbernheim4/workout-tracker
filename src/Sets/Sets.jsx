@@ -86,7 +86,7 @@ export default function Sets() {
 	return (
 
 		<div className='sets'>
-			<div className='sets--add'>
+			<div className='sets--add-set'>
 				<AddSet addSet={addSet} exercise={'Dumbbell Curl'}/>
 			</div>
 
