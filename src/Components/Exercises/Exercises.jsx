@@ -1,23 +1,38 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router';
 
 import ExerciseList from './ExerciseList/ExerciseList.jsx';
 
 import './exercises.scss';
 
-export default function Exercises() {
+export default class Exercises extends Component {
 
-	const [searchTerm, setSearchTerm] = useState('');
-	const [exercises, setExercises] = useState([]);
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			searchTerm: '',
+			exercises: []
+		}
+
+		this.addExerciseToList = this.addExerciseToList.bind(this);
+		this.removeExerciseFromList = this.removeExerciseFromList.bind(this);
+		this.saveSelectedExercise = this.saveSelectedExercise.bind(this);
+	}
 
 	/*
 	 *
 	 * @param {Object} exercise - The exercise to be added to the list of selected exercises
 	 *
 	 * */
-	function addExerciseToList(exercise) {
-		const updatedExercises = [...exercises, exercise];
+	addExerciseToList(exercise) {
 
-		setExercises(updatedExercises);
+		const updatedExercises = [...this.state.exercises, exercise];
+
+		this.setState({
+			exercises: updatedExercises
+		});
+
 	}
 
 	/*
@@ -25,10 +40,11 @@ export default function Exercises() {
 	 * @param {Object} exercise - The exercise to be removed to the list of selected exercises
 	 *
 	 * */
-	function removeExerciseFromList(exercise) {
+	removeExerciseFromList(exercise) {
+
 		let updatedExercises = [];
 
-		exercises.forEach(ex => {
+		this.state.exercises.forEach(ex => {
 
 			if (ex.name !== exercise.name) {
 				updatedExercises.push(ex);
@@ -36,35 +52,54 @@ export default function Exercises() {
 
 		});
 
-		setExercises(updatedExercises);
+		this.setState({
+			exercises: updatedExercises
+		});
+
 	}
 
-	function saveSelectedExercise() {
-		console.log(exercises);
+	saveSelectedExercise() {
+		this.setState({
+			redirect: true
+		});
 	}
 
-	return (
+	render() {
 
-		<div className='exercises'>
+		if (this.state.redirect) {
 
-			<div className='exercises--search'>
-				<input
-					className='exercises--search--input'
-					type='text'
-					placeholder='Search'
-					value={searchTerm}
-					onChange={(e) => { setSearchTerm(e.target.value) }}
-				/>
+			return <Redirect to={{
+				pathname: '/view-selected-exercises',
+				state: { exercises: this.state.exercises }
+			}} />
 
-				<button className='exercises--search--add' onClick={saveSelectedExercise}>Add ({exercises.length})</button>
-			</div>
+		} else {
 
-			<ExerciseList
-				searchTerm={searchTerm}
-				addExercise={addExerciseToList}
-				removeExercise={removeExerciseFromList}
-			/>
+			return (
 
-		</div>
-	);
+				<div className='exercises'>
+
+					<div className='exercises--search'>
+						<input
+							className='exercises--search--input'
+							type='text'
+							placeholder='Search'
+							value={this.state.searchTerm}
+							onChange={(e) => { this.setSearchTerm(e.target.value) }}
+						/>
+
+						<button className='exercises--search--add' onClick={this.saveSelectedExercise}>Add ({this.state.exercises.length})</button>
+					</div>
+
+					<ExerciseList
+						searchTerm={this.state.searchTerm}
+						addExercise={this.addExerciseToList}
+						removeExercise={this.removeExerciseFromList}
+					/>
+
+				</div>
+			);
+		}
+
+	}
 }

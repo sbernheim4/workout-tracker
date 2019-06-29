@@ -9,11 +9,6 @@
 import React from 'react';
 import Loadable from 'react-loadable';
 
-export const Home = Loadable({
-	loader: () => import('./Home/Home.jsx'),
-	loading: () => <div>Loading...</div>
-});
-
 export const ExerciseSelection = Loadable({
 	loader: () => import ('./ExerciseSelection/ExerciseSelection.jsx'),
 	loading: () => <div>Loading...</div>
@@ -21,6 +16,11 @@ export const ExerciseSelection = Loadable({
 
 export const SetManager = Loadable({
 	loader: () => import('./SetManager/SetManager.jsx'),
+	loading: () => <div>Loading...</div>
+});
+
+export const ViewSelectedExercises = Loadable({
+	loader: () => import('./../Components/Exercises/SelectedExercises/SelectedExercises.jsx'),
 	loading: () => <div>Loading...</div>
 });
 

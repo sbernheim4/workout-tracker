@@ -12,10 +12,10 @@ import Navbar from './../Components/Navbar/Navbar.jsx';
 
 // Import lazy loaded route components
 import {
-	Home,
 	ErrorPage,
 	ExerciseSelection,
-	SetManager
+	SetManager,
+	ViewSelectedExercises
 } from './LazyLoadRoutes.jsx';
 
 export default function Routes() {
@@ -25,9 +25,10 @@ export default function Routes() {
 			<Navbar />
 
 			<Switch className="main">
-				<Route exact path='/' component={Home}/>
+				<Route exact path='/' component={ExerciseSelection}/>
 				<Route path='/select-exercises' component={ExerciseSelection} />
 				<Route path='/set-manager' component={SetManager} />
+				<Route path='/view-selected-exercises' component={ViewSelectedExercises} />
 				<Route component={ErrorPage}/> {/* This route is run when no matches are found - It's your 404 fallbback */}
 			</Switch>
 
