@@ -14,8 +14,13 @@ export const Home = Loadable({
 	loading: () => <div>Loading...</div>
 });
 
-export const Subpage = Loadable({
-	loader: () => import ('./Subpage/Subpage.jsx'),
+export const ExerciseSelection = Loadable({
+	loader: () => import ('./ExerciseSelection/ExerciseSelection.jsx'),
+	loading: () => <div>Loading...</div>
+});
+
+export const SetManager = Loadable({
+	loader: () => import('./SetManager/SetManager.jsx'),
 	loading: () => <div>Loading...</div>
 });
 
@@ -23,3 +28,4 @@ export const ErrorPage = Loadable({
 	loader: () => import ('./404/404.jsx'),
 	loading: () => <div>Loading...</div>
 });
+

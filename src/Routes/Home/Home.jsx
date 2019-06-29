@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-import Exercises from './../../Exercises/Exercises.jsx';
-import Sets from './../../Sets/Sets.jsx';
-
 import './home.css';
 
 class Home extends Component {
@@ -16,10 +13,7 @@ class Home extends Component {
 	render() {
 		return (
 			<div className="home">
-				<Sets />
-				<br/>
-				<br/>
-				<Exercises />
+				<p>Hello</p>
 			</div>
 		);
 	}

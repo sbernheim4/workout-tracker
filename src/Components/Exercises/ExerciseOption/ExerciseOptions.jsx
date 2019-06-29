@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { toTitleCase } from './../../Util/util.js';
+import { toTitleCase } from './../../../Util/util.js';
 
 import './exerciseOption.scss';
 

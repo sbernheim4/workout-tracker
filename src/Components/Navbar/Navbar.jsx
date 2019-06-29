@@ -12,11 +12,11 @@ class Navbar extends Component {
 	render() {
 		return (
 			<nav className='navbar'>
-				<Link id="main" to='/'>Home</Link>
+				<Link to='/select-exercises'>Exercises</Link>
 
 				<hr/>
 
-				<Link to='/subpage'>Subpage</Link>
+				<Link to='/set-manager'>Sets</Link>
 			</nav>
 		);
 	}

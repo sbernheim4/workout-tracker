@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import ExerciseOption from './../ExerciseOption/ExerciseOptions.jsx';
 
-import data from './../../Util/exercises.json';
+import data from './../../../Util/exercises.json';
 
 const allExercises = data.Exercises;
 
