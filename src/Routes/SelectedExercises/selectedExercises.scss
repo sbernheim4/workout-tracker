@@ -1,0 +1,12 @@
+@import './../../styles/variables.scss';
+
+.selected-exercises {
+
+	background-color: darken($blue, 10%);
+
+	&--title {
+		padding: 30px;
+		text-align: center;
+	}
+
+}

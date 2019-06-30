@@ -20,7 +20,7 @@ export const SetManager = Loadable({
 });
 
 export const ViewSelectedExercises = Loadable({
-	loader: () => import('./../Components/Exercises/SelectedExercises/SelectedExercises.jsx'),
+	loader: () => import('./SelectedExercises/SelectedExercises.jsx'),
 	loading: () => <div>Loading...</div>
 });
 

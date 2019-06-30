@@ -1,0 +1,42 @@
+@import './../../../styles/variables.scss';
+
+$size: 80px;
+
+.exercise {
+
+	background-color: $blue;
+	padding: 10px 0;
+	border-bottom: 3px solid lighten($blue, 3%);
+	display: grid;
+	grid-template-columns: $size calc(100% - #{$size});
+	grid-template-rows: 1fr;
+	grid-template-areas: 'index name'
+						 'index muscle';
+	justify-content: center;
+	align-items: center;
+
+	&--index {
+		width: 40px;
+		height: 40px;
+		background-color: $green;
+		border-radius: 100%;
+		font-size: 20px;
+		text-align: center;
+		grid-area: index;
+		justify-self: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	h2 {
+		grid-area: name;
+	}
+
+	&--muscle {
+		grid-area: muscle
+	}
+
+
+}
+
