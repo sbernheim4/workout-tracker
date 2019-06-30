@@ -10,17 +10,17 @@ import React from 'react';
 import Loadable from 'react-loadable';
 
 export const ExerciseSelection = Loadable({
-	loader: () => import ('./ExerciseSelection/ExerciseSelection.jsx'),
+	loader: () => import ('./../Components/Exercises/Exercises.jsx'),
 	loading: () => <div>Loading...</div>
 });
 
 export const SetManager = Loadable({
-	loader: () => import('./SetManager/SetManager.jsx'),
+	loader: () => import('./../Components/Sets/Sets.jsx'),
 	loading: () => <div>Loading...</div>
 });
 
 export const ViewSelectedExercises = Loadable({
-	loader: () => import('./SelectedExercises/SelectedExercises.jsx'),
+	loader: () => import('./../Components/SelectedExercises/SelectedExercises.jsx'),
 	loading: () => <div>Loading...</div>
 });
 
