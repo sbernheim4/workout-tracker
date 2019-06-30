@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import Exercise from './Exercise/Exercise.jsx';
 
-import './selectedExercises.scss';
+import './workoutPlan.scss';
 
-export default function SelectedExercises(props) {
+export default function WorkoutPlan(props) {
 
 	const [exercises, setExercises] = useState(props.location.state.exercises)
 

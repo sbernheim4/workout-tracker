@@ -19,8 +19,8 @@ export const SetManager = Loadable({
 	loading: () => <div>Loading...</div>
 });
 
-export const ViewSelectedExercises = Loadable({
-	loader: () => import('./../Components/SelectedExercises/SelectedExercises.jsx'),
+export const WorkoutPlan = Loadable({
+	loader: () => import('./../Components/WorkoutPlan/WorkoutPlan.jsx'),
 	loading: () => <div>Loading...</div>
 });
 

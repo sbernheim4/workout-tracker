@@ -15,7 +15,7 @@ import {
 	ErrorPage,
 	ExerciseSelection,
 	SetManager,
-	ViewSelectedExercises
+	WorkoutPlan
 } from './LazyLoadRoutes.jsx';
 
 export default function Routes() {
@@ -28,7 +28,7 @@ export default function Routes() {
 				<Route exact path='/' component={ExerciseSelection}/>
 				<Route path='/select-exercises' component={ExerciseSelection} />
 				<Route path='/set-manager' component={SetManager} />
-				<Route path='/view-selected-exercises' component={ViewSelectedExercises} />
+				<Route path='/workout-plan' component={WorkoutPlan} />
 				<Route component={ErrorPage}/> {/* This route is run when no matches are found - It's your 404 fallbback */}
 			</Switch>
 

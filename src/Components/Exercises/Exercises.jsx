@@ -69,7 +69,7 @@ export default class Exercises extends Component {
 		if (this.state.redirect) {
 
 			return <Redirect to={{
-				pathname: '/view-selected-exercises',
+				pathname: '/workout-plan',
 				state: { exercises: this.state.exercises }
 			}} />
 
