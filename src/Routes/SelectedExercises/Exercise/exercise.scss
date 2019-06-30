@@ -1,19 +1,25 @@
 @import './../../../styles/variables.scss';
 
-$size: 80px;
+$size: 110px;
 
 .exercise {
-
-	background-color: $blue;
 	padding: 10px 0;
+	background-color: $blue;
 	border-bottom: 3px solid lighten($blue, 3%);
+	//box-shadow: 10px 10px 10px 10px black;
+	cursor: pointer;
+	transition: background-color .12s ease;
+	justify-content: center;
+	align-items: center;
 	display: grid;
 	grid-template-columns: $size calc(100% - #{$size});
 	grid-template-rows: 1fr;
 	grid-template-areas: 'index name'
 						 'index muscle';
-	justify-content: center;
-	align-items: center;
+
+	&:hover, &:focus {
+		background-color: darken($blue, 5%);
+	}
 
 	&--index {
 		width: 40px;
@@ -21,12 +27,12 @@ $size: 80px;
 		background-color: $green;
 		border-radius: 100%;
 		font-size: 20px;
-		text-align: center;
-		grid-area: index;
-		justify-self: center;
-		display: flex;
 		justify-content: center;
 		align-items: center;
+		text-align: center;
+		grid-area: index;
+		justify-self: center; // For CSS Grid
+		display: flex; // To center the number in the circle
 	}
 
 	h2 {
