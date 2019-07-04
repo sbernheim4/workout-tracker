@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 
 import ExerciseList from './ExerciseList/ExerciseList.jsx';
 
@@ -18,6 +18,7 @@ export default class Exercises extends Component {
 		this.addExerciseToList = this.addExerciseToList.bind(this);
 		this.removeExerciseFromList = this.removeExerciseFromList.bind(this);
 		this.saveSelectedExercise = this.saveSelectedExercise.bind(this);
+
 	}
 
 	/*
@@ -70,7 +71,9 @@ export default class Exercises extends Component {
 
 			return <Redirect to={{
 				pathname: '/workout-plan',
-				state: { exercises: this.state.exercises }
+				state: {
+					exercises: this.state.exercises
+				}
 			}} />
 
 		} else {
@@ -85,19 +88,21 @@ export default class Exercises extends Component {
 							type='text'
 							placeholder='Search'
 							value={this.state.searchTerm}
-							onChange={(e) => { this.setSearchTerm(e.target.value) }}
+							onChange={(e) => { this.setState({
+								searchTerm: e.target.value
+							}); }}
 						/>
 
-						<button className='exercises--search--add' onClick={this.saveSelectedExercise}>Add ({this.state.exercises.length})</button>
-					</div>
-
-					<ExerciseList
-						searchTerm={this.state.searchTerm}
-						addExercise={this.addExerciseToList}
-						removeExercise={this.removeExerciseFromList}
-					/>
-
+					<button className='exercises--search--add' onClick={this.saveSelectedExercise}>Add ({this.state.exercises.length})</button>
 				</div>
+
+				<ExerciseList
+					searchTerm={this.state.searchTerm}
+					addExercise={this.addExerciseToList}
+					removeExercise={this.removeExerciseFromList}
+				/>
+
+		</div>
 			);
 		}
 
